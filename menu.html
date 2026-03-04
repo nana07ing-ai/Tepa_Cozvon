@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тёпа Созвон</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="shortcut icon" href="./images/Tépa.ico" type="image/x-icon">
+    <style>
+        /* Плавное возвращение сайта в норму */
+        body {
+            transition: filter 2s ease, background-color 2s ease;
+            overflow-x: hidden; 
+        }
+
+        /* Тряска экрана при поломке */
+        @keyframes siteShake {
+            0% { transform: translate(2px, 1px) rotate(0deg) skewX(2deg) scale(1.02); }
+            10% { transform: translate(-1px, -2px) rotate(-1deg) skewX(2deg) scale(1.02); }
+            20% { transform: translate(-3px, 0px) rotate(1deg) skewX(2deg) scale(1.02); }
+            30% { transform: translate(0px, 2px) rotate(0deg) skewX(2deg) scale(1.02); }
+            40% { transform: translate(1px, -1px) rotate(1deg) skewX(2deg) scale(1.02); }
+            50% { transform: translate(-1px, 2px) rotate(-1deg) skewX(2deg) scale(1.02); }
+            60% { transform: translate(-3px, 1px) rotate(0deg) skewX(2deg) scale(1.02); }
+            70% { transform: translate(2px, 1px) rotate(-1deg) skewX(2deg) scale(1.02); }
+            80% { transform: translate(-1px, -1px) rotate(1deg) skewX(2deg) scale(1.02); }
+            90% { transform: translate(2px, 2px) rotate(0deg) skewX(2deg) scale(1.02); }
+            100% { transform: translate(1px, -2px) rotate(-1deg) skewX(2deg) scale(1.02); }
+        }
+
+        /* Эффект сломанного/горящего сайта */
+        body.broken-site {
+            transition: filter 0.1s, background-color 0.1s; 
+            filter: sepia(1) hue-rotate(-50deg) saturate(5) contrast(1.2);
+            background-color: #3a0000;
+            animation: siteShake 0.4s infinite; /* Добавили тряску */
+        }
+
+        /* Стили для загадочной коробки */
+        .mystery-container {
+            position: relative;
+            text-align: center;
+            margin-top: 280px; 
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: center;
+        }
+        .mario-box {
+            display: inline-block;
+            width: 70px;
+            height: 70px;
+            background-color: #f8d020;
+            border: 4px solid #000;
+            border-radius: 4px;
+            color: #d86000;
+            font-size: 45px;
+            font-weight: 900;
+            line-height: 60px;
+            cursor: pointer;
+            user-select: none;
+            box-shadow: 4px 4px 0px #000;
+            text-shadow: 2px 2px 0px #fff;
+            position: relative;
+            z-index: 2;
+            transition: transform 0.1s, box-shadow 0.2s ease;
+        }
+        
+        /* Эффект свечения */
+        .mario-box:hover {
+            box-shadow: 4px 4px 0px #000, 0 0 20px #f8d020;
+        }
+        .mario-box:active {
+            box-shadow: 0px 0px 0px #000, 0 0 10px #f8d020;
+        }
+
+        /* Анимация подпрыгивания (при клике) */
+        .bump {
+            animation: jump 0.2s ease-out;
+        }
+        @keyframes jump {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Анимация привлечения внимания (пока стоит без дела) */
+        .twitch {
+            animation: twitchAnim 0.5s ease-in-out;
+        }
+        @keyframes twitchAnim {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            25% { transform: rotate(-10deg) scale(1.1); }
+            50% { transform: rotate(10deg) scale(1.1); }
+            75% { transform: rotate(-5deg) scale(1.1); }
+        }
+
+        /* Сюрпризы */
+        .secret-popup {
+            display: none;
+            position: absolute;
+            bottom: 90px; 
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #000;
+            box-shadow: 4px 4px 0px rgba(0,0,0,0.5);
+            max-width: 300px;
+            z-index: 1;
+            text-align: center;
+            animation: slideUp 0.3s ease-out; 
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .secret-popup img, .secret-popup video {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .secret-popup p {
+            font-weight: bold;
+            margin-top: 15px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="element">
+            <h1>Тёпа Созвон</h1>
+            <div class="karti">
+                <div class="karta">
+                    <img src="./images/Тёпа На Диванчике.png" alt="Тёпа">
+                    <div class="info">
+                    <h2>Программисты Тёпа</h2>
+                    </div>
+                    <div class="buttons">
+                        <a href="./videocalls/1prog-tepa_vid1.html"><button>Присоединиться</button></a>
+                    </div>
+                </div>
+                <div class="karta">
+                    <img src="./images/Тёпа Взрослый.png" alt="Тёпа">
+                    <div class="info">
+                    <h2>Обсуждение Тёпа</h2>
+                    </div>
+                    <div class="buttons">
+                        <a href="./videocalls/2obsuj-tepa_vid2.html"><button>Присоединиться</button></a>
+                    </div>
+                </div>
+                <div class="karta">
+                    <img src="./images/Тёпа.jpg" alt="Тёпа">
+                    <div class="info">
+                    <h2>Разговоры Тёпа</h2>
+                    </div>
+                    <div class="buttons">
+                        <a href="./videocalls/3razgv-tepa_vid3.html"><button>Присоединиться</button></a>
+                    </div>
+                </div>
+                <div class="karta">
+                    <img src="./images/Тёпа Кушает Пельмени.png" alt="Тёпа">
+                    <div class="info">
+                    <h2>Вопросы Тёпа</h2>
+                    </div>
+                    <div class="buttons">
+                        <a href="./videocalls/4voprs-tepa_vid4.html"><button>Присоединиться</button></a>
+                    </div>
+                </div>
+                <div class="karta">
+                    <img src="./images/Тёпа На Лошадке.png" alt="Тёпа">
+                    <div class="info">
+                    <h2>Рассуждение Тёпа</h2>
+                    </div>
+                    <div class="buttons">
+                        <a href="./videocalls/5rassuj-tepa_vid5.html"><button>Присоединиться</button></a>
+                    </div>
+                </div>
+                <div class="karta">
+                    <img src="./images/Тёпа Спит.png" alt="Тёпа">
+                    <div class="info">
+                    <h2>Компы Тёпа</h2>
+                    </div>
+                    <div class="buttons">
+                        <a href="./videocalls/6kompi-tepa_vid6.html"><button>Присоединиться</button></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mystery-container">
+                
+                <div id="popup-tepa" class="secret-popup">
+                    <img src="./images/Tépa.png" alt="Тёпа Секретный">
+                    <p>братан косарь когда вернёшь? а хавать? дай хавать!</p>
+                </div>
+
+                <div id="popup-rat" class="secret-popup">
+                    <video id="rat-video" width="300" src="./images/videos/SecretVideo.mp4" muted></video>
+                </div>
+
+                <div id="popup-ghast" class="secret-popup" style="background: transparent; border: none; box-shadow: none;">
+                    <img src="./images/ghast.png" alt="Гаст">
+                </div>
+
+                <div id="mario-box" class="mario-box">?</div>
+            </div>
+
+        </div>
+    </div>
+    <b></b>
+
+    <script>
+        const box = document.getElementById('mario-box');
+        
+        const popupTepa = document.getElementById('popup-tepa');
+        const popupRat = document.getElementById('popup-rat');
+        const popupGhast = document.getElementById('popup-ghast');
+        
+        const ratVideo = document.getElementById('rat-video');
+        
+        let isBusy = false; 
+
+        // Привлекаем внимание каждые 5 секунд
+        setInterval(() => {
+            if (!isBusy) {
+                box.classList.add('twitch');
+                setTimeout(() => box.classList.remove('twitch'), 500);
+            }
+        }, 5000);
+
+        box.addEventListener('click', () => {
+            if (isBusy) return; 
+            isBusy = true;
+
+            box.classList.remove('twitch'); // Сбрасываем подёргивание, если оно шло
+            box.classList.add('bump');
+            setTimeout(() => box.classList.remove('bump'), 200);
+
+            const chance = Math.random();
+
+            if (chance < 0.33) {
+                // ВАРИАНТ 1
+                popupTepa.style.display = 'block';
+                setTimeout(() => {
+                    popupTepa.style.display = 'none';
+                    isBusy = false;
+                }, 4000); 
+
+            } else if (chance < 0.66) {
+                // ВАРИАНТ 2
+                popupRat.style.display = 'block';
+                
+                const secretAudio = new Audio('./images/sounds/Secret.mp3');
+                secretAudio.volume = 1.0; 
+                secretAudio.play();
+                ratVideo.play();
+
+                ratVideo.onended = () => {
+                    popupRat.style.display = 'none';
+                    isBusy = false;
+                };
+
+            } else {
+                // ВАРИАНТ 3
+                popupGhast.style.display = 'block';
+                
+                const ghastAudio = new Audio('./images/sounds/ghast_shoot.mp3');
+                ghastAudio.volume = 0.5;
+                ghastAudio.play();
+
+                // Через 1 секунду ломаем сайт
+                setTimeout(() => {
+                    document.body.classList.add('broken-site');
+                }, 1000);
+
+                // Ещё через 4 секунды убираем Гаста и начинаем плавное восстановление сайта
+                setTimeout(() => {
+                    document.body.classList.remove('broken-site');
+                    popupGhast.style.display = 'none';
+                    isBusy = false;
+                }, 5000); 
+            }
+        });
+    </script>
+</body>
+</html>

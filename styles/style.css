@@ -1,0 +1,80 @@
+.main {
+    text-align: center;
+}
+.element {
+    display: inline-block;
+    width: 80%;
+    height: 80%;
+}
+h1 {
+    color: rgb(69, 188, 235);
+    background-color: rgba(0, 0, 0, 0.76);
+    padding: 10px;
+    border-radius: 10px;
+}
+.karta {
+    background-color: rgba(0, 0, 0, 0.76);
+    border-radius: 10px;
+    max-width: 100%;
+    transition: all 0.3s;
+    display: inline-block;
+    margin: 10px 10px 0;
+}
+.karta:hover {
+    box-shadow: 0 20px 40px aqua;
+    transform: translateY(-10px);
+}
+h2 {
+    font-size: 20px;
+    text-align: center;
+    height: 40px;
+    color: rgb(69, 188, 235);
+}
+img {
+    border-radius: 10px 10px 0 0;
+    width: 210px;
+}
+.karti {
+    background-color: rgba(59, 59, 59, 0.719);
+    padding: 20px;
+    border-radius: 10px;
+}
+body {
+    background-color: #272727;
+    margin: 0;
+}
+button {
+    background-color: rgba(0, 0, 0, 0.76);
+    color: rgb(69, 188, 235);
+    border-radius: 10px;
+    width: 170px;
+    border: 1px solid rgb(69, 188, 235);
+    margin-bottom: 10px;
+    font-size: 20px;
+    text-align: center;
+    transition: all 0.3s;
+    padding: 5px;
+}
+button:hover {
+    box-shadow: 0 20px 40px cyan;
+    transform: translateY(-10px);
+    background-color: rgb(69, 188, 235);
+    color: white;
+}
+iframe {
+    height: 50%;
+    position: absolute;
+    width: 50%;
+    top: 12%;
+    right: 25%;
+    border-radius: 10px;
+    border: none;
+}
+#close_btn {
+    position: absolute;
+    margin: 10px;
+}
+.proverka {
+    background-color: rgba(143, 36, 36, 0.76);
+    padding: 10px;
+}
